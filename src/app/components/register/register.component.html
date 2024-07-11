@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+        <img class="logo" src="../../../assets/img/login.png" alt="img login">
+        <h3>Registrar Usuario</h3>
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" [(ngModel)]="username" class="form-control" placeholder="Ingrese usuario">
+            <label>Correo electrónico</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" [(ngModel)]="password" class="form-control" placeholder="Ingrese password">
+            <label>Password</label>
+            <!-- Mensaje de error para la contraseña -->
+            <small *ngIf="password != '' && !isValidPassword()" class="text-danger">
+                La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, un número y un símbolo
+            </small>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" [(ngModel)]="confirmPassword" class="form-control" placeholder="Ingrese password de nuevo">
+            <label>Repetir Password</label>
+        </div>
+        <!-- Agregar campo para seleccionar el rol del usuario -->
+        <div class="form-floating mb-3">
+            <select [(ngModel)]="role" class="form-select" aria-label="Seleccione el rol">
+                <option value="" disabled selected>Seleccione el rol</option>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuario</option>
+                <option value="usuario">Usuario2</option>
+            </select>
+            <label>Rol</label>
+        </div>
+        <div class="d-grid gap-2 mb-3">
+            <button type="button" (click)="addUser()" class="btn btn-primary btn-lg">Aceptar</button>
+        </div>
+        <a routerLink="/login">Volver</a>
+    </div>
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>

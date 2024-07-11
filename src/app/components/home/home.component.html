@@ -1,0 +1,78 @@
+<!-- app.component.html -->
+<nav style="background-color: red; padding: 1rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="#" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1200px-F1.svg.png" alt="F1 Logo" style="height: 40px; margin-right: 1rem;">
+        <span style="color: white; font-size: 1.5rem;">Pitlane Pro</span>
+      </a>
+      <ul style="list-style: none; display: flex; margin: 0; padding: 0;">
+        <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;"><i class="fas fa-home"></i> Inicio</a></li>
+        <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;"><i class="fas fa-newspaper"></i> Noticias</a></li>
+        <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="" [routerLink]="['/login']">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="" (click)="logOut()">Salir</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div style="display: flex; flex-direction: column; align-items: center; margin: 2rem;">
+    <div style="display: flex; flex-direction: row; align-items: center; margin: 1rem 0; width: 80%; border: 1px solid #ccc; padding: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <img src="https://a4.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0707%2Fr1355733_1296x729_16%2D9.jpg&w=1140&cquality=40&format=jpg" alt="News Image" style="max-width: 150px; margin-right: 1rem;">
+      <div>
+        <h2>Lewis Hamilton ganó en Silverstone y agranda su leyenda en F1</h2>
+        <p>
+          SILVERSTONE, Inglaterra -- Lewis Hamilton ganó un espectacular Gran Premio de Gran Bretaña en condiciones mixtas, poniendo fin a una sequía de victorias que se remontaba al Gran Premio de Arabia Saudita de 2021.
+          Superó a su viejo enemigo Max Verstappen por 1.4 segundos y, al hacerlo, consiguió su novena victoria en su tierra natal en Silverstone, la mayor cantidad para cualquier piloto en un solo circuito en la historia de la Fórmula 1.
+          Hamilton, emocionado, dijo después: "No puedo dejar de llorar. Sé que ha sido así desde 2021, cada día me levanto y trato de concentrarme en la tarea y trabajar lo más duro que puedo con este increíble equipo, y esta es mi última carrera aquí con este increíble equipo, en el Gran Premio de Gran Bretaña, así que quería ganar esto por ellos".
+        </p>
+      </div>
+    </div>
+  
+    <div style="display: flex; flex-direction: row-reverse; align-items: center; margin: 1rem 0; width: 80%; border: 1px solid #ccc; padding: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <img src="https://images.reporteindigo.com/wp-content/uploads/2022/06/sergio-perez-checo-gran-premio-gran-bretana-formula-1-f1-red-bull-scaled.jpg" alt="News Image" style="max-width: 150px; margin-left: 1rem;">
+      <div>
+        <h2>CHECO PÉREZ EXPLICA SU ACCIDENTE EN SILVERSTONE: NO TENÍA AGARRE, ERA UN PASAJERO</h2>
+        <p>
+          Checo Pérez arrancará el Gran Premio de la Gran Bretaña desde la posición 19, apenas por delante del Alpine del francés Pierre Gasly, esto luego de que un trompo dejó al mexicano fuera de contienda en la Q1 cuando había montado el neumático blando.
+          La clasificación en Silverstone inició con una pista húmeda luego de una intensa lluvia en la Fórmula 2 apenas una hora antes. Sergio Pérez inició con gomas intermedias y llegó a estar dentro de los 10 primeros antes de cambiar a gomas slicks blandas.
+        </p>
+      </div>
+    </div>
+  
+    <div style="display: flex; flex-direction: row; align-items: center; margin: 1rem 0; width: 80%; border: 1px solid #ccc; padding: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <img src="https://th.bing.com/th?id=OVFT.jVugg_3eWu4TcvUh7Kl2Hy&pid=News&w=300&h=186&c=14&rs=2&qlt=90&dpr=1.5" alt="News Image" style="max-width: 150px; margin-right: 1rem;">
+      <div>
+        <h2>RESUMEN Y RESULTADOS DE LA CARRERA DE F1 EN SILVERSTONE 2024</h2>
+        <p>
+          Lewis Hamilton se impuso a Max Verstappen y a Lando Norris tras una emocionante carrera afectada por la lluvia en el Gran Premio de Gran Bretaña 2024 de Fórmula 1, su novena victoria en casa.
+        </p>
+      </div>
+    </div>
+  
+    <div style="display: flex; flex-direction: row-reverse; align-items: center; margin: 1rem 0; width: 80%; border: 1px solid #ccc; padding: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <img src="https://www.elfinanciero.com.mx/resizer/iCRl0JoK3V9jIBlT1d4OfZOb0WQ=/1440x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/II53KYOYI5BGXNX3D57JN4B6FE.jpg" alt="News Image" style="max-width: 150px; margin-left: 1rem;">
+      <div>
+        <h2>‘No me siento bien’: Charles Leclerc asegura estar destrozado tras malos resultados en F1</h2>
+        <p>
+          Charles Leclerc, piloto de Ferrari, volvió a quedarse fuera de los puntos en el Gran Premio de Gran Bretaña 2024. El monegasco finalizó decimocuarto en el Circuito de Silverstone y cuando habló con los medios de comunicación expresó sentirse desesperado por los malos resultados obtenidos en las últimas carreras de F1 que ha disputado.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <footer style="background-color: #808080; color: white; padding: 1rem; text-align: center;">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+    <div>
+      <a href="#" style="color: white; margin: 0 1rem;"><i class="fas fa-user-secret"></i> Privacidad</a>
+      <a href="#" style="color: white; margin: 0 1rem;"><i class="fas fa-file-contract"></i> Términos</a>
+      <a href="#" style="color: white; margin: 0 1rem;"><i class="fas fa-envelope"></i> Contacto</a>
+    </div>
+  </footer>
