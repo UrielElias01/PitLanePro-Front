@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Ingrese su código de verificación</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="verificationCode">Código de verificación:</label>
+        <input type="text" class="form-control" id="verificationCode" [(ngModel)]="enteredCode" name="verificationCode" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Verificar</button>
+    </form>
+  </div>
+   

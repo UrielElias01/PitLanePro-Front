@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenComponent } from './components/token/token.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { Token2Component } from './components/token2/token2.component';
  
 @NgModule({ 
   declarations: [
@@ -23,7 +26,10 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     SpinnerComponent,
     TokenComponent,
-    HomeComponent
+    HomeComponent,
+    ForgotPassComponent,
+    ResetPasswordComponent,
+    Token2Component
   ], 
   imports: [
     BrowserModule,
