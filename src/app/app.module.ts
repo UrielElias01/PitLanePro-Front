@@ -15,10 +15,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenComponent } from './components/token/token.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
-import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { CardsPilotosComponent } from './components/cards-pilotos/cards-pilotos.component';
+import { HorarioComponent } from './components/horario/horario.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { PoliPrivComponent } from './components/poli-priv/poli-priv.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component'; 
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { Token2Component } from './components/token2/token2.component';
- 
+
 @NgModule({ 
   declarations: [
     AppComponent,
@@ -27,6 +31,10 @@ import { Token2Component } from './components/token2/token2.component';
     SpinnerComponent,
     TokenComponent,
     HomeComponent,
+    CardsPilotosComponent,
+    HorarioComponent,
+    InicioComponent,
+    PoliPrivComponent,
     ForgotPassComponent,
     ResetPasswordComponent,
     Token2Component

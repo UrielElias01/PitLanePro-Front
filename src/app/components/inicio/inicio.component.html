@@ -1,0 +1,122 @@
+<body>
+  <nav style="background-color: red; padding: 1rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="#" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1200px-F1.svg.png" alt="F1 Logo" style="height: 40px; margin-right: 1rem;">
+        <span style="color: white; font-size: 1.5rem;">Pitlane Pro</span>
+      </a>
+      <ul style="list-style: none; display: flex; margin: 0; padding: 0;">
+        <li style="margin-left: 1rem;">
+          <a href="/home" style="color: white; text-decoration: none; display: flex; align-items: center;">
+            <i class="fas fa-newspaper" style="margin-right: 0.5rem;"></i> Noticias
+          </a>
+        </li>
+        <li style="margin-left: 1rem;">
+          <a href="/app-cards-pilotos" style="color: white; text-decoration: none; display: flex; align-items: center;">
+            <i class="fas fa-user" style="margin-right: 0.5rem;"></i> Pilotos
+          </a>
+        </li>
+        <li style="margin-left: 1rem;">
+          <a href="/app-horario" style="color: white; text-decoration: none; display: flex; align-items: center;">
+            <i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i> Horarios
+          </a>
+        </li>
+        <li style="margin-left: 1rem;" *ngIf="!isLoggedIn()">
+          <a href="/login" style="color: white; text-decoration: none; display: flex; align-items: center;">
+            <i class="fas fa-sign-in-alt" style="margin-right: 0.5rem;"></i> Iniciar Sesión
+          </a>
+        </li>
+        <li style="margin-left: 1rem;" *ngIf="isLoggedIn()">
+          <a href="#" (click)="logOut()" style="color: white; text-decoration: none; display: flex; align-items: center;">
+            <i class="fas fa-sign-out-alt" style="margin-right: 0.5rem;"></i> Salir
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="slide">
+    <div class="slide-inner">
+      <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
+      <div class="slide-item">
+        <img src="https://img.speedweek.com/i/d/d9d64dd18b3e469290bc3c894a55c47b.jpg?preset=i750" alt="Slide 1">
+        <div class="slide-text">
+          <h2>Enterate de las mejores noticias de la Formula 1</h2>
+          <p>Lo mejor y mas actual solo aqui</p>
+          <a href="/home">Ver noticias</a>
+        </div>
+      </div>
+      <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+      <div class="slide-item">
+        <img src="https://th.bing.com/th/id/OIP.JEbclcuGFhnYgR0Qn0q5zAAAAA?w=474&h=276&rs=1&pid=ImgDetMain" alt="Slide 2">
+        <div class="slide-text">
+          <h2>Ve los horarios</h2>
+          <p>No te pierdas ningun gran premio solo aqui veras los horarios</p>
+          <a href="/app-horario">Ver horarios</a>
+        </div>
+      </div>
+      <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+      <div class="slide-item">
+        <img src="https://images.squarespace-cdn.com/content/v1/624f5004d8ac5431ffa7e7fd/391e7e7d-e891-4c65-90a7-365a4e39da5b/1920x1080+F1.jpg?format=2500w" alt="Slide 3">
+        <div class="slide-text">
+          <h2>Conoce a tus pilotos</h2>
+          <p>Conoce la trayectoria de tus pilotos favoritos solo aqui</p>
+          <a href="/app-cards-pilotos">Ver pilotos</a>
+        </div>
+      </div>
+      <label for="slide-1" class="slide-control prev control-1">‹</label>
+      <label for="slide-2" class="slide-control next control-1">›</label>
+      <label for="slide-2" class="slide-control prev control-2">‹</label>
+      <label for="slide-3" class="slide-control next control-2">›</label>
+      <label for="slide-3" class="slide-control prev control-3">‹</label>
+      <label for="slide-1" class="slide-control next control-3">›</label>
+      <ol class="slide-indicador">
+        <li>
+          <label for="slide-1" class="slide-circulo">•</label>
+        </li>
+        <li>
+          <label for="slide-2" class="slide-circulo">•</label>
+        </li>
+        <li>
+          <label for="slide-3" class="slide-circulo">•</label>
+        </li>
+      </ol>
+    </div>
+  </div><br>
+
+  <!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-column">
+          <h3>CONTENIDO</h3>
+          <ul>
+              <li><a href="/app-cards-pilotos">Imágenes nuevas</a></li>
+              <li><a href="/app-home">Contenido popular</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h3>INFORMACIÓN</h3>
+          <ul>
+              <li><a href="#">Sobre nosotros</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h3>LEGAL</h3>
+          <ul>
+              <li><a href="/app-poli-priv">Política de privacidad</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h3>REDES SOCIALES</h3>
+          <ul class="social-media">
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-x"></i></a></li>
+              <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+          <p>Recibe contenido exclusivo en tu correo</p>
+      </div>
+  </div>
+</footer>
