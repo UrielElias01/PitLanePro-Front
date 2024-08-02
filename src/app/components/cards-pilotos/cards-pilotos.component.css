@@ -1,0 +1,296 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: linear-gradient(145deg, #ff0909, #0f0a0abe);
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px #bcbcbc, -4px -4px 8px #ffffff;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 200px; /* Fija la altura de la imagen */
+  object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor */
+}
+
+.card-info {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.card-info h3 {
+  margin: 1rem 0 0.5rem;
+  color: #333;
+}
+
+.card-info button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #0361c67b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card-info button:hover {
+  background-color: #3f3fffc9;
+}
+
+.trajectory-card {
+  display: none;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.trajectory-card {
+  display: block;
+}
+
+/* app.component.css */
+.navbar {
+  background-color: red;
+  padding: 1rem;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 1rem;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0;
+  width: 80%;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.news-item img {
+  max-width: 150px;
+  margin-right: 1rem;
+}
+
+.news-item .news-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-item.inverted {
+  flex-direction: row-reverse;
+}
+
+.news-item.inverted img {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+.menu .navbar ul li a {
+  font-size: 23px;
+  padding: 20px;
+  color: #fffdfc;
+  display: block;
+  font-weight: 600;
+}
+
+.menu .navbar ul li a:hover {
+  color: #ce967b;
+}
+.menu .navbar ul li {
+  position: relative;
+  display: flex;
+  float: left;
+}
+
+/* Estilos responsivos */
+@media (max-width: 991px) {
+  .menu label {
+    display: block;
+    cursor: pointer;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #323337;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    width: 100%;
+  }
+
+  .navbar ul li a {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #menu:checked + label + .navbar {
+    display: flex;
+  }
+}
+
+.footer {
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  padding: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 1rem;
+  min-width: 200px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+  color: #fb4949;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #c5c6c7;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-media li {
+  display: inline;
+}
+
+.social-media li a {
+  color: #c5c6c7;
+  font-size: 1.5rem;
+}
+
+.social-media li a:hover {
+  color: #66fcf1;
+}
+
+.footer p {
+  margin-top: 1rem;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Mostrar el modal cuando se hace clic en el enlace */
+#privacy-policy-modal:target {
+  display: block;
+}
