@@ -11,8 +11,11 @@ import { PoliPrivComponent } from './components/poli-priv/poli-priv.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { Token2Component } from './components/token2/token2.component';
-import { AuthGuard } from './utils/auth.guard';
+import { AdminGuard} from './guards/admin.guard';
 import { TestComponent } from './components/test/test.component';
+import { CreateCompetitionComponent } from './admin-competitions/create-competition/create-competition.component';
+import { ManageParticipantsComponent } from './admin-competitions/manage-participants/manage-participants.component';
+import { ResultsRankingComponent } from './admin-competitions/results-ranking/results-ranking.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'app-inicio', pathMatch: 'full' },
@@ -31,7 +34,11 @@ const routes: Routes = [
   {path:'app-poli-priv', component:PoliPrivComponent},
   {path:'app-forgot-pass', component:ForgotPassComponent},
   {path:'app-reset-password', component:ResetPasswordComponent},
-  {path:'app-token2', component:Token2Component}
+  {path:'app-token2', component:Token2Component},
+  { path: 'admin-competitions', loadChildren: () => import('./admin-competitions/admin-competitions.module').then(m => m.AdminCompetitionsModule) },
+  { path: 'create', component: CreateCompetitionComponent, canActivate: [AdminGuard] },
+  { path: 'participants', component: ManageParticipantsComponent, canActivate: [AdminGuard] },
+  { path: 'results', component: ResultsRankingComponent, canActivate: [AdminGuard] },
 
 ];
 

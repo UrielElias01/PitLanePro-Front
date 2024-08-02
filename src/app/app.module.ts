@@ -23,6 +23,7 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { Token2Component } from './components/token2/token2.component';
 import { TestComponent } from './components/test/test.component';
+import { CreateCompetitionComponent } from './admin-competitions/create-competition/create-competition.component';
  
 
 @NgModule({ 
@@ -40,7 +41,8 @@ import { TestComponent } from './components/test/test.component';
     ForgotPassComponent,
     ResetPasswordComponent,
     Token2Component,
-    TestComponent
+    TestComponent,
+    CreateCompetitionComponent
   ], 
   imports: [
     BrowserModule,

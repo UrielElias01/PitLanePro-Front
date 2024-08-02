@@ -29,10 +29,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Verifica si estamos en un entorno de navegador antes de acceder a localStorage
-    if (typeof localStorage !== 'undefined') {
+    if (this.isLocalStorageAvailable()) {
       const token = localStorage.getItem('token');
       if (token) {
-        const decodedToken: any = jwtDecode(token);
+        const decodedToken: any = this.jwtDecode(token);
         this.role = decodedToken.role;
         this._userService.getUserRole().subscribe(
           (data) => {
@@ -64,10 +64,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   isLoggedIn(): boolean {
-    if (typeof localStorage !== 'undefined') {
-      return !!localStorage.getItem('token');
-    }
-    return false;
+    return this.isLocalStorageAvailable() && !!localStorage.getItem('token');
   }
 
   toggleUserMenu() {
@@ -75,7 +72,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   logOut() {
-    if (typeof localStorage !== 'undefined') {
+    if (this.isLocalStorageAvailable()) {
       localStorage.removeItem('token');
       this.router.navigate(['/home']);
     }
@@ -123,8 +120,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       // Add more news items as needed
     ];
   }
-}
 
-function jwtDecode(token: string): any {
-  throw new Error('Function not implemented.');
+  private jwtDecode(token: string): any {
+    try {
+      return JSON.parse(atob(token.split('.')[1]));
+    } catch (e) {
+      console.error('Error decoding token:', e);
+      return null;
+    }
+  }
+
+  private isLocalStorageAvailable(): boolean {
+    try {
+      const test = '__localStorageTest__';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 }
