@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { Token2Component } from './components/token2/token2.component';
+import { TestComponent } from './components/test/test.component';
  
 @NgModule({ 
   declarations: [
@@ -29,7 +30,8 @@ import { Token2Component } from './components/token2/token2.component';
     HomeComponent,
     ForgotPassComponent,
     ResetPasswordComponent,
-    Token2Component
+    Token2Component,
+    TestComponent
   ], 
   imports: [
     BrowserModule,
