@@ -1,6 +1,7 @@
+import { SafeHtml } from '@angular/platform-browser';
+
 export interface News {
-    title: string;
-    content: string;
-    imageUrl: string;
-  }
-  
+  title: SafeHtml;
+  content: SafeHtml;
+  imageUrl: string;
+}

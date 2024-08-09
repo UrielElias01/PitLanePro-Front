@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { SearchService } from '../../services/find.service';
 import { News } from '../../interfaces/news';
 import { Subscription } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private router: Router,
     private _userService: UserService,
     private http: HttpClient,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +52,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.searchService.searchResults$.subscribe(
         (results: News[]) => {
-          this.searchResults = results;
+          this.searchResults = results.map(news => ({
+            title: news.title.toString(),  // Aquí transformas SafeHtml a string
+            content: news.content.toString(),
+            imageUrl: news.imageUrl
+          }));
         }
       )
     );
@@ -92,7 +98,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   search() {
-    this.searchService.filterNews(this.searchQuery);
+    this.searchService.filterNews(this.sanitizeInput(this.searchQuery));
+  }
+
+  private sanitizeInput(input: string): string {
+    const tempDiv = document.createElement('div');
+    tempDiv.textContent = input;
+    return tempDiv.innerHTML;
+  }
+
+  private sanitizeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
   private getMockNews(): News[] {
