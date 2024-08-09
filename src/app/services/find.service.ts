@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DomSanitizer, SecurityContext } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { News } from '../interfaces/news';
+import { SecurityContext } from '@angular/core';
 
 
 @Injectable({
