@@ -121,6 +121,7 @@
   .video-item iframe {
     height: 200px;
   }
+
 }
 
 .footer {
@@ -248,9 +249,50 @@
   border: none;
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
+
+
+  /* Contenedor de la barra de búsqueda */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem 0;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del campo de búsqueda */
+.search-input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+/* Estilo del campo de búsqueda al enfocar */
+.search-input:focus {
+  border-color: #007bff;
+}
+
+/* Estilo del botón de búsqueda */
+.search-button {
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 
 .edit-comment-btn:hover {
   background-color: #888;
@@ -260,3 +302,14 @@
   background-color: #e74c3c;
   color: white;
 }
+
+/* Efecto al pasar el cursor sobre el botón */
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Icono de búsqueda */
+.search-button i {
+  font-size: 1rem;
+}
+

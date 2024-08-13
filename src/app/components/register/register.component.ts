@@ -15,7 +15,7 @@ export class RegisterComponent {
   username: string = '';
   password: string = '';
   confirmPassword: string = '';
-  role: string = '';
+  role: string = 'usuario';
   loading: boolean = false;
 
   constructor(private toastr: ToastrService,
@@ -34,7 +34,7 @@ export class RegisterComponent {
     } 
  
     // Validamos que las passwords sean iguales
-    if (this.password != this.confirmPassword) {
+    if (!this.validatePasswords) {
       this.toastr.error('Las contraseñas ingresadas son distintas', 'Error');
       return;
     }
@@ -80,4 +80,12 @@ export class RegisterComponent {
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
     return passwordRegex.test(this.password);
   }
+
+  validatePasswords() {
+    if (this.password !== this.confirmPassword) {
+      this.toastr.error('Las contraseñas ingresadas son distintas', 'Error');
+      return;
+    }}
+
+
 }

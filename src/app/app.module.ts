@@ -22,6 +22,9 @@ import { PoliPrivComponent } from './components/poli-priv/poli-priv.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component'; 
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { Token2Component } from './components/token2/token2.component';
+import { TestComponent } from './components/test/test.component';
+import { CreateCompetitionComponent } from './admin-competitions/create-competition/create-competition.component';
+ 
 
 @NgModule({ 
   declarations: [
@@ -37,7 +40,9 @@ import { Token2Component } from './components/token2/token2.component';
     PoliPrivComponent,
     ForgotPassComponent,
     ResetPasswordComponent,
-    Token2Component
+    Token2Component,
+    TestComponent,
+    CreateCompetitionComponent
   ], 
   imports: [
     BrowserModule,
@@ -48,7 +53,7 @@ import { Token2Component } from './components/token2/token2.component';
     RouterModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
-      timeOut: 4000, // tiempo de espera en milisegundos (4 segundos)
+      timeOut: 3000, // tiempo de espera en milisegundos (4 segundos)
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }), // ToastrModule added

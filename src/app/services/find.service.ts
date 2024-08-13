@@ -1,19 +1,39 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
+import { News } from '../interfaces/news';
+import { SecurityContext } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private indexedContent: any[] = [
-    { keyword: 'principal', url: '/principal' },
-    { keyword: 'resumen de proyectos', url: '/dashboard' },
-    { keyword: 'login', url: '/login' },
-  ];
+  private allNews: News[] = [];
+  private searchResultsSubject = new BehaviorSubject<News[]>([]);
+  searchResults$ = this.searchResultsSubject.asObservable();
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) {}
 
-  search(query: string): any {
-    const keyword = query.toLowerCase().trim();
-    return this.indexedContent.find(item => item.keyword === keyword);
+  updateNews(news: News[]) {
+    this.allNews = news;
+    this.searchResultsSubject.next(this.allNews);
+  }
+
+  filterNews(query: string) {
+    const sanitizedQuery = query.toLowerCase();
+    
+    const filteredNews = this.allNews.filter(news => {
+      const titleString = this.sanitizeHtml(news.title);
+      const contentString = this.sanitizeHtml(news.content);
+      
+      return titleString.includes(sanitizedQuery) || contentString.includes(sanitizedQuery);
+    });
+
+    this.searchResultsSubject.next(filteredNews);
+  }
+
+  private sanitizeHtml(safeHtml: any): string {
+    return this.sanitizer.sanitize(SecurityContext.HTML, safeHtml) || '';
   }
 }

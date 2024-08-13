@@ -1,4 +1,6 @@
-<nav style="background-color: red; padding: 1rem;">
+<nav style="background-color: red; padding: 1rem;"
+     
+
   <div style="display: flex; justify-content: space-between; align-items: center;">
     <a href="#" style="display: flex; align-items: center; text-decoration: none;">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1200px-F1.svg.png" alt="F1 Logo" style="height: 40px; margin-right: 1rem;">
@@ -65,6 +67,64 @@
   <div class="video-section">
     <div class="video-item">
       <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="#" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1200px-F1.svg.png" alt="F1 Logo" style="height: 40px; margin-right: 1rem;">
+        <span style="color: white; font-size: 1.5rem;">Pitlane Pro</span>
+      </a>
+      <ul style="list-style: none; display: flex; margin: 0; padding: 0;">
+        <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;"><i class="fas fa-home"></i> Inicio</a></li>
+        <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;"><i class="fas fa-newspaper"></i> Noticias</a></li>
+        <li style="margin-left: 1rem;"><a href="#" style="color: white; text-decoration: none;"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+            <a class="" [routerLink]="['/login']">Iniciar Sesión</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="" (click)="logOut()">Salir</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Search Input -->
+<!-- home.component.html -->
+<div class="search-bar">
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="search()" 
+    placeholder="Buscar noticias..."
+    class="search-input"
+  />
+  <button (click)="search()" class="search-button">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
+<div class="news-container">
+  <div *ngFor="let news of searchResults" class="news-item">
+    <img [src]="news.imageUrl" alt="News Image" class="news-image">
+    <div class="news-content">
+      <h2>{{ news.title }}</h2>
+      <p>{{ news.content }}</p>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #noResults>
+  <p>No hay resultados para la búsqueda.</p>
+</ng-template>
+  
+  
+  
+  <footer style="background-color: #808080; color: white; padding: 1rem; text-align: center;">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="https://facebook.com" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 1rem;"><i class="fab fa-instagram"></i> Instagram</a>
+
     </div>
     <div class="video-item">
       <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" frameborder="0" allowfullscreen></iframe>
