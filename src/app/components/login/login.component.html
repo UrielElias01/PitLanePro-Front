@@ -1,26 +1,70 @@
+<nav style="background-color: red; padding: 1rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="/app-inicio" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/1200px-F1.svg.png" alt="F1 Logo" style="height: 40px; margin-right: 1rem;">
+        <span style="color: white; font-size: 1.5rem;">Pitlane Pro</span>
+      </a>
+    </div>
+  </nav><br><br>
 
-<div class="wrapper">
-    <div *ngIf="!loading" class="body">
-        <img class="logo" src="../../../assets/img/login.png" alt="img login">
+<div class="f1-wrapper">
+    <div *ngIf="!loading" class="f1-body">
+        <img class="f1-logo" src="https://th.bing.com/th/id/R.0b1ae29562a147a6925a36c13699efbc?rik=SKD%2f2SCus9D9IQ&riu=http%3a%2f%2fmedia.motorbox.com%2fimage%2fil-nuovo-logo-della-formula-1%2f5%2f8%2f9%2f589220%2f589220-16x9-lg.jpg&ehk=pNkCjqy19HrO1%2fPKhh24t24UV4l6hBOjznbj78EjNRw%3d&risl=&pid=ImgRaw&r=0" alt="img login">
         <h3 class="mb-2">Login</h3>
         <div class="form-floating mb-3 mt-3">
-            <input type="text" [(ngModel)]="username" autocomplete="false" class="form-control" placeholder="Ingrese usuario">
-            <label>Correo Electronico</label>
+            <input type="text" [(ngModel)]="username" autocomplete="off" class="form-control" placeholder="Ingrese usuario">
+            <label>Correo Electrónico</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" [(ngModel)]="password" autocomplete="false" class="form-control" placeholder="Ingrese password">
+            <input type="password" [(ngModel)]="password" autocomplete="off" class="form-control" placeholder="Ingrese password">
             <label>Password</label>
         </div>
-        <p class="mt-3">Olvidaste tu contraseña?<a routerLink="/restaurar">Recuperar contraseña</a></p>
-        <div>
-            <p>Hello potential human...</p>
+        <p class="mt-3 f1-text">¿Olvidaste tu contraseña? <a routerLink="/app-forgot-pass" class="f1-link">Recuperar contraseña</a></p>
+        <div class="captcha-container">
+            <p class="f1-human-text">Hello potential human...</p>
             <re-captcha (resolved)="resolved($event!)" siteKey="6Ld8OMYpAAAAAKwdUry2xwKsGGE4Qcv94sUrNK4V"></re-captcha>
-
-        </div> 
+        </div> <br>
         <div class="d-grid gap-2">
-            <button type="button" class="btn btn-primary btn-lg" (click)="login()" [disabled]="!captchaResolved">Aceptar</button>
+            <button type="button" class="btn btn-f1" (click)="login()" [disabled]="!captchaResolved">Aceptar</button>
         </div>
-        <p class="mt-3">No tienes cuenta? <a routerLink="/signIn">Registrar</a></p>
+        <p class="mt-3 f1-text">¿No tienes cuenta? <a routerLink="/signIn" class="f1-link">Registrar</a></p>
     </div> 
     <app-spinner *ngIf="loading"></app-spinner>
-</div>
+</div><br><br>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>CONTENIDO</h3>
+            <ul>
+                <li><a href="/app-cards-pilotos">Imágenes nuevas</a></li>
+                <li><a href="/app-home">Contenido popular</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>INFORMACIÓN</h3>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>LEGAL</h3>
+            <ul>
+                <li><a href="/app-poli-priv">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>REDES SOCIALES</h3>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-x"></i></a></li>
+                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <p>Recibe contenido exclusivo en tu correo</p>
+        </div>
+    </div>
+  </footer>
