@@ -1,125 +1,262 @@
-/* app.component.css */
 .navbar {
-    background-color: red;
-    padding: 1rem;
-  }
-  
-  .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar-brand {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  
-  .navbar-nav {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-nav .nav-item {
-    margin-left: 1rem;
-  }
-  
-  .navbar-nav .nav-link {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .news-container {
-    display: flex;
+  background-color: red;
+  padding: 1rem;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 1rem;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link i {
+  margin-right: 0.5rem;
+}
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1rem 0;
+  width: 80%;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-item img {
+  max-width: 100%;
+  max-height: 150px;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover img {
+  transform: scale(1.2);
+}
+
+.news-description {
+  z-index: 2;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.video-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 50%;
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 2rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 991px) {
+  .content-container {
     flex-direction: column;
-    align-items: center;
-    margin: 2rem;
-  }
-  
-  .news-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 1rem 0;
-    width: 80%;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  .news-item img {
-    max-width: 150px;
-    margin-right: 1rem;
-  }
-  
-  .news-item .news-description {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .news-item.inverted {
-    flex-direction: row-reverse;
-  }
-  
-  .news-item.inverted img {
-    margin-left: 1rem;
-    margin-right: 0;
-  }
-  .menu .navbar ul li a {
-    font-size: 23px;
-    padding: 20px;
-    color: #fffdfc;
-    display: block;
-    font-weight: 600;
-  }
-  
-  .menu .navbar ul li a:hover {
-    color: #ce967b;
-  }
-  .menu .navbar ul li {
-    position: relative;
-    display: flex;
-    float: left;
   }
 
-  /* Estilos responsivos */
-@media (max-width: 991px) {
-    .menu label {
-      display: block;
-      cursor: pointer;
-    }
-  
-    .navbar {
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      background-color: #323337;
-      width: 100%;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      padding: 10px;
-    }
-  
-    .navbar ul {
-      flex-direction: column;
-      width: 100%;
-    }
-  
-    .navbar ul li {
-      width: 100%;
-    }
-  
-    .navbar ul li a {
-      width: 100%;
-      padding: 15px;
-    }
-  
-    #menu:checked + label + .navbar {
-      display: flex;
-    }
+  .video-section {
+    width: 100%;
   }
-  
+
+  .video-item iframe {
+    height: 200px;
+  }
+}
+
+.footer {
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  padding: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 1rem;
+  min-width: 200px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+  color: #fb4949;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #c5c6c7;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-media li {
+  display: inline;
+}
+
+.social-media li a {
+  color: #c5c6c7;
+  font-size: 1.5rem;
+}
+
+.social-media li a:hover {
+  color: #66fcf1;
+}
+
+.footer p {
+  margin-top: 1rem;
+}
+
+/* Estilos para la sección de comentarios */
+.comment-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+}
+
+.comment-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.comment-list li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.add-comment-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-comment-btn:hover {
+  background-color: darkred;
+}
+
+/* Botones de editar y eliminar */
+.comment-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-comment-btn, .delete-comment-btn {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-comment-btn:hover {
+  background-color: #888;
+}
+
+.delete-comment-btn:hover {
+  background-color: #e74c3c;
+  color: white;
+}
